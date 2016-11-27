@@ -1,10 +1,10 @@
 #Text Miner
 
-This script attemtps to extract text from PDFs, Office documents, images, and many other types of files including audio (mp3, wav) with speech-to-text.
+This script extracts text from PDFs, Office documents, images, and many other types of files including audio (mp3, wav) with speech-to-text. Extracted file text and metadata are saved as a rows in a single SQLite database, and file metadata can be extracted to CSV for analysis.
 
 ##Installing
 1. Clone the repository to your computer.
-2. run ```pip install -r requirements.txt'
+2. run ```pip install -r requirements.txt```
 3. To enable OCR, speech-to-text, and better support for other filetypes, install additional packages with these commands:
     1. ```brew cask install xquartz```
     2. ```brew install poppler antiword unrtf tesseract sox```
