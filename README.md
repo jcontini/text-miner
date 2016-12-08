@@ -2,6 +2,17 @@
 
 This script extracts text from PDFs, Office documents, images, and many other types of files including audio (mp3, wav) with speech-to-text. Extracted file text and metadata are saved as a rows in a single SQLite database, and file metadata can be extracted to CSV for analysis.
 
+## What it does
+
+- Traverses every file in specified directory, including subfolders
+- Records file path, type (extension), size, modified/created dates
+- Records file owner (who put the file there– useful for shared drives)
+- Where possible, extracts text from document with textract
+- Records datestamp of when file was scanned
+- Saves all data to local SQLite database (extract.db)
+- If interrupted & run again, picks up where it left off, scanning files only once
+- To start fresh, just delete the generated extract.db & run script again
+
 ##Installing
 1. Clone the repository to your computer.
 2. run ```pip install -r requirements.txt```
@@ -27,7 +38,7 @@ To traverse a folder (and subfolders) & extracting text from files, just run:
 ##Exporting Metadata to CSV
 
 Once you've run the script and have an ```extract.db``` file generated, you can export the file metadata to a CSV by simply running the script without a folder argument:
-    ```python mine.py /path/to/folder```
+    ```python mine.py```
 
 This will create a CSV with the following fields:
 
@@ -44,3 +55,5 @@ This will create a CSV with the following fields:
 #Future Plans
 
 I'd love to create a GUI for this so folks can configure settings without having to edit the script. I was thinking of creating a Flask web app or a simple GUI with Tkinter or similar. If you make any improvements, please submit a pull request!
+
+If building a web app, I'd think about adding tools to download and mine the content of entire websites or RSS feeds.
