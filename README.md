@@ -1,4 +1,4 @@
-#Text Miner
+# Text Miner
 
 This script extracts text from PDFs, Office documents, images, and many other types of files including audio (mp3, wav) with speech-to-text. Extracted file text and metadata are saved as a rows in a single SQLite database, and file metadata can be extracted to CSV for analysis.
 
@@ -13,7 +13,7 @@ This script extracts text from PDFs, Office documents, images, and many other ty
 - If interrupted & run again, picks up where it left off, scanning files only once
 - To start fresh, just delete the generated extract.db & run script again
 
-##Installing
+## Installing
 1. Clone the repository to your computer.
 2. run ```pip install -r requirements.txt```
 3. To enable OCR, speech-to-text, and better support for other filetypes, install additional packages with these commands:
@@ -23,9 +23,9 @@ This script extracts text from PDFs, Office documents, images, and many other ty
 
 Text extraction relies heavily on [textract](https://github.com/deanmalmgren/textract) and the libraries beneath it. If you are having trouble extracting text from certain file types, be sure to install the libraries listed in the [textract documentation](https://textract.readthedocs.io/en/stable/).
 
-##How to Use
+## How to Use
 
-###Extracting text from files in a folder
+### Extracting text from files in a folder
 
 To traverse a folder (and subfolders) & extracting text from files, just run:
     ```python mine.py /path/to/folder```
@@ -35,7 +35,7 @@ To traverse a folder (and subfolders) & extracting text from files, just run:
 - If a file is taking a long time and you want to skip it, just press ctrl-c once and it should jump to the next file.
 - If the script is interrupted for any reason, it will continue where it left off, so it's OK if you need to cancel.
 
-##Exporting Metadata to CSV
+## Exporting Metadata to CSV
 
 Once you've run the script and have an ```extract.db``` file generated, you can export the file metadata to a CSV by simply running the script without a folder argument:
     ```python mine.py```
@@ -52,7 +52,7 @@ This will create a CSV with the following fields:
 - Transcription Status (1 = success, 0 = failed/skipped)
 - Date scanned
 
-#Future Plans
+# Future Plans
 
 I'd love to create a GUI for this so folks can configure settings without having to edit the script. I was thinking of creating a Flask web app or a simple GUI with Tkinter or similar. If you make any improvements, please submit a pull request!
 
